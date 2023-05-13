@@ -18,8 +18,6 @@ driver.find_element(By.XPATH, "//a[@id='nav-orders']"). click()
 # create a new Chrome browser instance
 service = Service(driver_path)
 
-driver = webdriver.Chrome(service=service)
-
 driver.find_element(By.XPATH, "//div[@class='a-section a-padding-medium auth-workflow']")
 
 driver.find_element(By.XPATH, "//h1[@class='a-spacing-small']")
@@ -34,9 +32,3 @@ assert expected_result == actual_result
 print('Test Passed!')
 
 driver.quit()
-
-
-
-
-
-
