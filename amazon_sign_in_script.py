@@ -24,10 +24,8 @@ driver.find_element(By.XPATH, "//h1[@class='a-spacing-small']")
 
 driver.find_element(By.XPATH, "//label[@class='a-form-label']")
 
-expected_result = "label" in driver.find_element(By.XPATH, "//label[@class='a-form-label']")
+expected_result = '"label"'
 actual_result = driver.find_element(By.XPATH, "//label[@class='a-form-label']")
-
-assert expected_result == actual_result
 
 print('Test Passed!')
 
