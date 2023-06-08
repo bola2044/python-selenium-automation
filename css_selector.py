@@ -30,6 +30,7 @@ driver.find_element(By.CSS_SELECTOR, '#twotabsearchtextbox.nav-input')
 
 # By CSS, attributes:
 driver.find_element(By.CSS_SELECTOR, "a[href='/gp/help/customer/display.html/ref=ap_signin_notification_condition_of_use?ie=UTF8&nodeId=508088']")
+driver.find_element(BY.CSS_SELECTOR, "a[href='/gp/bestsellers/?ref_=nav_cs_bestsellers']")
 # By CSS, attributes, partial match: *=
 driver.find_element(By.CSS_SELECTOR, "a[href*='ap_signin_notification_condition_of_use']")
 # Multiple attributes:
