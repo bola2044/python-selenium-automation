@@ -2,7 +2,6 @@ from selenium.webdriver.common.by import By
 from behave import given, when, then
 from time import sleep
 
-
 ORDER_BUTTON = (By.ID, "nav-cart-count")
 EMPTY_CART = (By.XPATH, "//h2[contains(text(),'Your Amazon Cart is empty')]")
 
