@@ -23,6 +23,7 @@ driver.find_element(By.ID, 'nav-search-submit-button')
 driver.find_element(By.XPATH, "//input[@placeholder='Search Amazon']")
 driver.find_element(By.XPATH, "//input[@aria-label='Search Amazon']")
 driver.find_element(By.XPATH, "//*[@aria-label='Search Amazon']")
+CART_BUTTON = (By.XPATH, "//span[@class='nav-cart-icon nav-sprite']")
 # By Xpath, with quotes, exception:
 driver.find_element(By.XPATH, "//img[@alt=\"Shopbop Mother's Day gifts\"]")
 

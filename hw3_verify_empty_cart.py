@@ -2,15 +2,23 @@ from selenium.webdriver.common.by import By
 from behave import given, when, then
 from time import sleep
 
-ORDER_BUTTON = (By.ID, "nav-cart-count")
-EMPTY_CART = (By.XPATH, "//h2[contains(text(),'Your Amazon Cart is empty')]")
+CART_CONTAINER = (By.ID, 'div#nav-cart-count-container')
+CART = (By.XPATH, "//div[@class='a-row sc-your-amazon-cart-is-empty']")
+
+
+@given('Open amazon main page')
+def open_amazon(context):
+    # context.driver.get('https://www.amazon.com/')
+    context.app.main_page.open_main_page()
 
 
 @when('click on cart button')
-def click_on_cart_button(context):
-    context.driver.find_element("*ORDER_BUTTON").click()
+def click_cart_container(context):
+    context.click_cart_container = context.driver.find_element(*CART_CONTAINER).click()
 
 
-@then('User see empty cart message')
+@then('Verify User see empty cart message')
 def user_see_empty_cart_message(context):
-    context.driver.find_element("*EMPTY_CART").text()
+    # context.driver.get('https://www.amazon.com/gp/cart/view.html?ref_=nav_cart')
+    # context.driver.user_see_empty_cart_message = context.driver.find_element(*CART).text()
+    context.app.cart_page.verify_user_see_empty_cart()
