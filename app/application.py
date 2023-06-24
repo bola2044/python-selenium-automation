@@ -4,7 +4,7 @@ from pages.main_page import MainPage
 from pages.product_page import ProductPage
 from pages.search_results import SearchResultsPage
 from pages.sign_in_page import SignInPage
-
+from pages.help_page import HelpPage
 
 class Application:
     def __init__(self, driver):
@@ -16,3 +16,4 @@ class Application:
         self.product_page = ProductPage(self.driver)
         self.search_results_page = SearchResultsPage(self.driver)
         self.sign_in_page = SignInPage(self.driver)
+        self.help_page = HelpPage(self.driver)
