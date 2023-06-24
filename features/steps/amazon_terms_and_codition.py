@@ -3,6 +3,7 @@ from behave import given, when, then
 from selenium.webdriver.support import expected_conditions as EC
 
 
+
 ORDER_BTN = (By.ID, "//a[@id='nav-orders']")
 SIGN_IN_PAGE = (By.CSS_SELECTOR, "div.a-section")
 COND_OF_USE = (By.XPATH, "//a[contains(@href,'ap_signin_notification_condition_of_use']")
@@ -32,9 +33,9 @@ def condition_of_use(context):
     context.driver.find(*COND_OF_USE).click()
 
 
-@when('Opens amazon help page')
-def amazon_help_page(context):
-    context.driver.find_element(*HELP_PAGE)
+# @when('Opens amazon help page')
+# def amazon_help_page(context):
+#     context.driver.find_element(*HELP_PAGE)
 
 
 @then('User can see help content')
