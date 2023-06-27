@@ -9,9 +9,9 @@ COLOR_OPTIONS = (By.CSS_SELECTOR, "#variation_color_name li")
 CURRENT_COLOR = (By.CSS_SELECTOR, "#variation_color_name .selection")
 
 
-@given('Open Amazon product {product_id} page')
-def open_amazon_product(context, product_id):
-    context.driver.get(f'https://www.amazon.com/dp/{product_id}/')
+# @given('Open Amazon product {product_id} page')
+# def open_amazon_product(context, product_id):
+#     context.driver.get(f'https://www.amazon.com/dp/{product_id}/')
 
 
 @when('Click on Add to cart button')
@@ -23,7 +23,7 @@ def click_add_to_cart(context):
 @when('Store product name')
 def get_product_name(context):
     context.product_name = context.driver.find_element(*PRODUCT_NAME).text
-    context.product_name = context.app.product_page.get_product_name()
+    context.app.product_page.get_product_name()
     print(f'Current product: {context.product_name}')
 
 

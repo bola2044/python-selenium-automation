@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from behave import given, when, then
 from time import sleep
 
+
 RESULT_TEXT = (By.XPATH, "//span[@class='a-color-state a-text-bold']")
 PRODUCT_PRICE = (By.XPATH, "//div[@data-component-type='s-search-result']//a[.//span[@class='a-price']]")
 SEARCH_RESULTS = (By.CSS_SELECTOR, "[data-component-type='s-search-result']")
@@ -32,4 +33,6 @@ def verify_products_name_img(context):
         print(title)
         assert title, 'Title should not be blank'
         assert product.find_element(*PRODUCT_IMG).is_displayed(), 'Image is not found'
+
+
 

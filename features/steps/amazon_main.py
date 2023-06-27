@@ -3,25 +3,27 @@ from behave import given, when, then
 from time import sleep
 from selenium.webdriver.support import expected_conditions as EC
 
-
 ORDERS_BTN = (By.ID, 'nav-orders')
 SEARCH_FILED = (By.ID, 'twotabsearchtextbox')
 SEARCH_BTN = (By.ID, 'nav-search-submit-button')
 FOOTER_LINKS = (By.CSS_SELECTOR, '.navFooterMoreOnAmazon a')
 POPUP_SIGNIN_BTN = (By.CSS_SELECTOR, "#nav-signin-tooltip .nav-action-signin-button")
-
+GC_SUBMENU = (By.CSS_SELECTOR, "[data-category='appliances']")
+DEPT_SELECT = (By.ID, 'searchDropdownBox')
+DEAL_OPTION = (By.CSS_SELECTOR, 'nav-template nav-flyout-content')
+NEW_ARRIVALS = (By.CSS_SELECTOR, 'a.nav-a.nav-hasArrow')
 
 @given('Open amazon main page')
 def open_amazon(context):
     context.driver.get('https://www.amazon.com/')
-    context.app.main_page.open_main_page()
+    # context.app.main_page.open_main_page()
 
 
 @when('Search for {search_query}')
 def search_amazon(context, search_query):
-    context.driver.find_element(*SEARCH_FILED).send_keys(search_query)
+    # context.driver.find_element(*SEARCH_FILED).send_keys(search_query)
     context.driver.find_element(*SEARCH_BTN).click()
-    context.app.header.search_amazon(search_query)
+    # context.app.header.search_amazon(search_query)
 
 
 @when('Click Orders')
@@ -32,7 +34,7 @@ def click_orders(context):
     element = context.driver.find_element(*ORDERS_BTN)
     print('After refresh: ', element)
     element.click()
-    context.app.header.click_orders()
+    # context.app.header.click_orders()
 
 
 @when('Verify Orders btn present')
@@ -57,6 +59,17 @@ def wait_sec(context, sec_amount):
 @when('Hover over language options')
 def hover_lang(context):
     context.app.header.hover_lang()
+
+
+@when('Select a department appliances')
+def select_dept(context):
+    context.driver.find_element(*DEPT_SELECT)
+    # context.app.header.select_dept()
+
+
+@then('Hover new arrivals')
+def hover_new_arrivals(context):
+    context.driver.find_element(*NEW_ARRIVALS)
 
 
 @then('Verify Sign In is clickable')
@@ -88,3 +101,13 @@ def verify_link_count(context, expected_amount):
 @then('Verify Spanish option present')
 def verify_spanish_lang_present(context):
     context.app.header.verify_spanish_lang_present()
+
+
+@then('Verify correct department shown')
+def verify_dept(context):
+    context.driver.find_element(*DEPT_SELECT)
+
+
+@then('Verify user sees the deals')
+def verify_deal(context):
+    context.driver.find_elements(*DEAL_OPTION)

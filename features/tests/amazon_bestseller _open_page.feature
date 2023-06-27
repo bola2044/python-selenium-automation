@@ -1,4 +1,3 @@
-# Created by priscillao at 6/7/23
 Feature: Tests for amazon bestseller page
 
   Scenario: User can open amazon bestseller page

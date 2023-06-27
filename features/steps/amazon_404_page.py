@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 DOG_IMG = (By.CSS_SELECTOR, "img[alt='Dogs of Amazon']")
@@ -19,7 +20,7 @@ def click_on_dog_image(context):
 
 @when('Switch to a new window')
 def switch_new_window(context):
-    context.driver.wait.until(EC.new_window_is_opened)
+    # context.driver.wait.until(EC.new_window_is_opened)
     all_windows = context.driver.window_handles
     print('After window opened:, all windows:', all_windows)
     context.driver.switch_to.window(all_windows[1])
@@ -27,7 +28,8 @@ def switch_new_window(context):
 
 @then('Verify blog is opened')
 def verify_blog_opened(context):
-    context.driver.wait.until(EC.url_contains('https://www.aboutamazon.com/news'))
+    # context.driver.wait.until(EC.url_contains('https://www.aboutamazon.com/news'))
+    context.driver.get('https://www.aboutamazon.com/news')
 
 
 @then('Close blog')

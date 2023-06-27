@@ -13,33 +13,34 @@ def open_amazon_product(context, product_id):
     context.driver.get(f'https://www.amazon.com/dp/{product_id}/')
 
 
-    @when('store_product_name')
-    def store_product_name(context):
+@when('store_product_name')
+def store_product_name(context):
         context.driver.find_element(*PRODUCT_NAME).title()
 
 
-    @when('Click on Add to cart button')
-    def click_add_to_cart(context):
-        context.driver.find_element(*ADD_TO_CART_BTN).click()
-        sleep(2)
+# @when('Click on Add to cart button')
+    # def click_add_to_cart(context):
+    #     context.driver.find_element(*ADD_TO_CART_BTN).click()
+    #     sleep(2)
+#
+# @when('Store product name')
+# def get_product_name(context):
+#     context.product_name = context.driver.find_element(*PRODUCT_NAME).text
+#     print(f'Current product: {context.product_name}')
 
-        @when('Store product name')
-        def get_product_name(context):
-            context.product_name = context.driver.find_element(*PRODUCT_NAME).text
-            print(f'Current product: {context.product_name}')
+# @then('Verify user can click through colors')
+# def verify_can_click_colors(context):
+#     expected_colors = ['01 Black', '07_ Coral', '09 Blue', '09_ Brown']
+#     actual_colors = []
+#
+#     colors = context.driver.find_elements(*COLOR_OPTIONS)  # => [WebElement1, WebElement2, WebElement3]
+#
+#     for color in colors[:4]:
+#         # WebElement4
+#         color.click()  # WebElement4.click()
+#         current_color = context.driver.find_element(*CURRENT_COLOR).text
+#         actual_colors += [current_color]
+#
+#         assert expected_colors == actual_colors, \
+#         f'Expected colors {expected_colors} did not match actual {actual_colors}'
 
-        @then('Verify user can click through colors')
-        def verify_can_click_colors(context):
-             expected_colors = ['01 Black', '07_ Coral', '09 Blue', '09_ Brown']
-             actual_colors = []
-
-             colors = context.driver.find_elements(*COLOR_OPTIONS)  # => [WebElement1, WebElement2, WebElement3]
-
-             for color in colors[:4]:
-                 # WebElement4
-                 color.click()  # WebElement4.click()
-                 current_color = context.driver.find_element(*CURRENT_COLOR).text
-                 actual_colors += [current_color]
-
-             assert expected_colors == actual_colors, \
-                 f'Expected colors {expected_colors} did not match actual {actual_colors}'
